@@ -163,51 +163,96 @@
 
 // console.log(getTopStudents(students));
 // =======================================
-function powerup(arr) {
-    let divededOfTwo = arr.filter(ar => ar % 2 == 0);
-    let square = divededOfTwo.map(num => num * num);
-    return square;
+// function powerup(arr) {
+//     let divededOfTwo = arr.filter(ar => ar % 2 == 0);
+//     let square = divededOfTwo.map(num => num * num);
+//     return square;
+// }
+
+// console.log(powerup([1,2,3,4,5,6,7,8]));
+// console.log('=========================');
+// function average(arr) {
+//     let numbers = arr.map(num => Math.round(num));
+//     let averageNumber = numbers.reduce((a,b) => a + b);
+//     return Math.ceil(averageNumber / numbers.length);
+// }
+// console.log(average([8, 8 , 6.75]));
+// console.log('============================');
+// function positiveNumber(arr) {
+//   let moreThanZero = arr.map(num => Math.abs(num));
+//   return moreThanZero;
+// }
+// console.log(positiveNumber([-2, 3, -4, -7, 10]));
+// console.log('===============================');
+// console.log((Math.floor(Math.random() * 100) + 1));
+// console.log('================================');
+// function circleMachine(num){
+//     let s = num * Math.PI;
+//     let d = num * 2 * Math.PI;
+//     return `Dien tich la ${s} va Chu Vi la ${d}`
+// }
+// console.log(circleMachine(3));
+// console.log('================================');
+// function sinCosTan(num){
+//     let sin = Math.sin(num * Math.PI / 180);
+//     let cos = Math.cos(num * Math.PI / 180);
+//     let tan = sin / cos;
+//     return `Sin Is ${sin}, Cos Is ${cos} Finally Tan Is ${tan}`;
+// }
+// console.log(sinCosTan(45));
+// =======================================
+// let student1 = {
+//     name: 'Herry',
+//     gender: 'Male',
+//     age: 18
+// }
+
+// function showInfo(obj) {
+//     this.obj = obj;
+//     return obj;
+// }
+
+// console.log(showInfo(student1));
+// console.log('===========================');
+// var student2 = {
+//     name: "David Rayy",
+//     sclass: "VI",
+//     rollno: 12
+// };
+
+// function updateObj(name ,sclass) {
+//     this.name = name;
+//     this.sclass = sclass;
+// }
+
+// var updatedObj = new updateObj('david rayy', 'VI');
+// console.log(updatedObj);
+// ==========================================
+function Student(name, level) {
+    this.name = name;
+    this.level = level;
+}
+Student.prototype.school = 'I Love Coder Tokyo';
+
+
+var student1 = new Student("Herry", "01");
+var student2 = new Student("Nancy", "02");
+
+console.log(student1, student1.school);
+console.log(student2, student2.school);
+console.log('=========================');
+function Studenta(diemToan, diemLy, diemHoa) {
+    this.diemToan = diemToan;
+    this.diemLy = diemLy;
+    this.diemHoa = diemHoa;
+}
+Studenta.prototype.average = function (){
+    console.log(this);
 }
 
-console.log(powerup([1,2,3,4,5,6,7,8]));
-console.log('=========================');
-function average(arr) {
-    let numbers = arr.map(num => Math.round(num));
-    let averageNumber = numbers.reduce((a,b) => a + b);
-    return Math.ceil(averageNumber / numbers.length);
-}
-console.log(average([8, 8 , 6.75]));
-console.log('============================');
-function positiveNumber(arr) {
-  let moreThanZero = arr.map(num => Math.abs(num));
-  return moreThanZero;
-}
-console.log(positiveNumber([-2, 3, -4, -7, 10]));
-console.log('===============================');
-function random() {
-    let a = Math.random();
-    let b = Math.random();
-    if(b < 0.5){
-        b = 10;
-    } else{
-        b = 100;
-    }
-    let c = a * b;
-    return Math.round(c);
-}
-console.log(random());
-console.log('================================');
-function circleMachine(num){
-    let s = num * Math.PI;
-    let d = num * 2 * Math.PI;
-    return `Dien tich la ${s} va Chu Vi la ${d}`
-}
-console.log(circleMachine(3));
-console.log('================================');
-function sinCosTan(num){
-    let sin = Math.sin(num * Math.PI / 180);
-    let cos = Math.cos(num * Math.PI / 180);
-    let tan = sin / cos;
-    return `Sin Is ${sin}, Cos Is ${cos} Finally Tan Is ${tan}`;
-}
-console.log(sinCosTan(45));
+var student3 = new Studenta(6, 7, 7);
+var student4 = new Studenta(8, 9, 6);
+
+console.log(student3.average()); // 7
+console.log(student4.average()); // 8
+
