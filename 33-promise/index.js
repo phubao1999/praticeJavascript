@@ -26,7 +26,7 @@ const axios = require('axios');
 function readFilePromise(path) {
     return new Promise(function (resolve, reject) {
         fs.readFile(path, { encoding: 'utf8' }, (err, data) => {
-            if(err){
+            if (err) {
                 reject(err);
             } else {
                 resolve(data);
@@ -61,4 +61,10 @@ Promise.all([
     console.log(err);
 })
 
-    
+
+
+
+
+
+
+
