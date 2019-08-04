@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function startTime(){
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+
+            function checkTime(i){ // Change 1,2,3... => 01, 02, 03...
+                if (i < 10){
+                    i = '0' + i;
+                }
+                return i
+            }
+
+            m = checkTime(m);
+            s = checkTime(s);
+
+            document.getElementById('timer').innerHTML = h + ':' + m + ':' + s;
+
+            var t = setTimeout(() => {
+                startTime();
+            }, 500)
+        }
+    </script>
+</head>
+<body onload="startTime()">
+    <div id="timer"></div>
+</body>
+</html>
