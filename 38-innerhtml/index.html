@@ -9,12 +9,16 @@
 </head>
 
 <body>
+    <input type="text" name="" id="new-item">
     <button onclick="addItem()">Add</button>
     <ul id="todo-list"></ul>
-    <h1 id="hello"></h1>
     <script>
-        function addItem(){
-            console.log('Item Have been added')
+        function addItem() {
+            var input = document.getElementById('new-item');
+            var newItem = input.value;
+            todoList.push(newItem);
+            render();
+            input.value = '';
         }
         var todoList = [
             'Take a shower',
@@ -22,13 +26,15 @@
             'Learn Code'
         ];
 
-        var htmlList = document.getElementById('todo-list');
-        var content = todoList.map((item) => {
-            return '<li>' + item + '</li>';
-        })
+        function render() {
+            var htmlList = document.getElementById('todo-list');
+            var content = todoList.map((item) => {
+                return '<li>' + item + '</li>';
+            })
 
-        htmlList.innerHTML = content.join('');
-        var h1 = document.getElementById('hello').innerHTML = 'Hello World'
+            htmlList.innerHTML = content.join('');
+        }
+        render();
     </script>
 </body>
 
