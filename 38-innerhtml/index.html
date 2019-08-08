@@ -11,30 +11,48 @@
 <body>
     <input type="text" name="" id="new-item">
     <button onclick="addItem()">Add</button>
-    <ul id="todo-list"></ul>
+    <ul id="todo-list">
+        <!-- <li data-id="1">Take A Shower</li>
+        <li data-id="2" data-is-done="true">Have A Walk</li>
+        <li data-id="3">Go To Bed</li> -->
+    </ul>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+        var url = 'http://localhost:3000/todos';
+        axios.get(url)
+            .then(function (res) {
+                var items = res.data;
+                render(items);
+            });
+        var htmlList = document.getElementById('todo-list');
+        htmlList.addEventListener('click', onItemClicked);
+
+        function onItemClicked(e) {
+            var button = e.target;
+            var index = parseInt(button.dataset.id);
+            // arr.splice
+            // todoList.splice(index, 1);
+            // Render()
+        }
+
         function addItem() {
             var input = document.getElementById('new-item');
-            var newItem = input.value;
-            todoList.push(newItem);
-            render();
-            input.value = '';
+            var newItem = {
+                content: input.value
+            };
+            axios.post(url, newItem).then(function(){
+                console.log('Item Saved', item);
+            })
         }
-        var todoList = [
-            'Take a shower',
-            'Play Soccer',
-            'Learn Code'
-        ];
 
-        function render() {
-            var htmlList = document.getElementById('todo-list');
-            var content = todoList.map((item) => {
-                return '<li>' + item + '</li>';
+        function render(items) {
+            var content = items.map((item, index) => {
+                return '<li>' + item.content + ' <button data-id="' + index + '">Deltete</button></li>';
             })
 
             htmlList.innerHTML = content.join('');
         }
-        render();
+        // render();
     </script>
 </body>
 
